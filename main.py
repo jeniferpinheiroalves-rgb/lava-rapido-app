@@ -6,7 +6,7 @@ from datetime import datetime
 
 # --- CONFIGURAÇÃO DO FIREBASE ---
 if not firebase_admin._apps:
-    cred = credentials.ApplicationDefault() 
+
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -146,3 +146,4 @@ cred = credentials.Certificate(firebase_config)
 
 if not firebase_admin._apps:
     firebase_admin.initialize_app(cred)
+
