@@ -137,3 +137,12 @@ if st.sidebar.checkbox("Acesso Administrativo"):
             for ag in agendas:
                 item = ag.to_dict()
                 st.write(f"📅 {item['data']} - {item['placa']} ({item['servico']})"
+                         import json
+
+firebase_config = dict(st.secrets["firebase"])
+firebase_config["private_key"] = firebase_config["private_key"].replace("\\n", "\n")
+
+cred = credentials.Certificate(firebase_config)
+
+if not firebase_admin._apps:
+    firebase_admin.initialize_app(cred)
